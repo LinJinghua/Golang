@@ -13,7 +13,7 @@ introduction: NULL.
 ------
 
 ## 题目描述
-![Regular Expression Matching][https://i1.hdslb.com/bfs/archive/1cf17d0b411ab244f811c145dd646c3db0af93b6.jpg]
+![Regular Expression Matching](https://i1.hdslb.com/bfs/archive/1cf17d0b411ab244f811c145dd646c3db0af93b6.jpg)
 即判断字符串与正则表达式(只支持'.'和'*')是否匹配。
 如："abab"与".*..ab"返回true。
 
