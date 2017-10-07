@@ -1,9 +1,9 @@
 # Site Settings
-title: Jekflix | A theme for Jekyll
+title: SU
 email: youremail@xyz.com
-description: Some text about your blog.
+description: Golang.
 baseurl: "/go" # the subpath of your site, e.g. /blog
-url: "https://linjinghua.github.io/" # the base hostname & protocol for your site
+url: "https://linjinghua.github.io" # the base hostname & protocol for your site
 google_analytics: "UA-XXXXXXXX-X"
 
 # User Settings
