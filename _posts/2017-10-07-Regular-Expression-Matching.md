@@ -4,21 +4,25 @@ title: "Regular Expression Matching"
 description: Leetcode Solution.
 image: 'https://i1.hdslb.com/bfs/archive/1cf17d0b411ab244f811c145dd646c3db0af93b6.jpg'
 category: 'blog'
-twitter_text: null.
-introduction: NULL.
+tags:
+- c++
+- leetcode
+twitter_text: 正则表达式匹配.
+introduction: 正则表达式匹配.
 ---
 
 # [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/) 题解
+[TOC]
 
 ------
 
 ## 题目描述
-![Regular Expression Matching](https://i1.hdslb.com/bfs/archive/1cf17d0b411ab244f811c145dd646c3db0af93b6.jpg)
-即判断字符串与正则表达式(只支持'.'和'*')是否匹配。
-如："abab"与".*..ab"返回true。
+![Regular Expression Matching](https://i1.hdslb.com/bfs/archive/1cf17d0b411ab244f811c145dd646c3db0af93b6.jpg "Regular Expression Matching")
+即判断字符串与正则表达式(只支持'.'和'\*')是否匹配。
+如："abab"与".\*..ab"返回true。
 
 ## 题解
-因为元字符‘*’可以匹配的数量不定，最长匹配或最短匹配都无法适应，所以只能通过一个容器记录转移状态。类似于状态转移图，所以简单两层循环即可。外循环遍历字符串，内循环寻找匹配的下一个状态。当最终完成遍历且最后状态中有两字符串最后匹配状态即匹配成功，反之失败。
+因为元字符'\*'可以匹配的数量不定，最长匹配或最短匹配都无法适应，所以只能通过一个容器记录转移状态。类似于状态转移图，所以简单两层循环即可。外循环遍历字符串，内循环寻找匹配的下一个状态。当最终完成遍历且最后状态中有两字符串最后匹配状态即匹配成功，反之失败。
 
 
 ## 代码
