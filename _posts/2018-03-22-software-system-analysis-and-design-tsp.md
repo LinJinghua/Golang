@@ -2,8 +2,7 @@
 layout: post
 title: 软件团队管理基础
 description: 软件团队是软件生产的基本单元。
-image: '/assets/img/blog/
-kanban-Inception.png'
+image: '/assets/img/blog/kanban-Inception.png'
 category: 'blog'
 tags:
 - software-system-analysis-and-design
@@ -66,5 +65,4 @@ introduction: 人，软件工程项目中最重要、也是最活跃的的资源
     - 每个人的任务是1-2项。
     - 至少包含一个团队活动任务
 
- ![表格 PSP 2.1](/assets/img/blog/
- kanban-Inception.png)
+ ![Kanban](/assets/img/blog/kanban-Inception.png)
