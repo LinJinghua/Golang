@@ -2,7 +2,7 @@
 layout: post
 title: "Software Engineering"
 description: 系统分析设计第一部分：软件工程部分要点.
-image: 'https://img3.doubanio.com/lpic/s1086045.jpg'
+image: '/assets/img/blog/The-Mythical-Man-Month.png'
 category: 'blog'
 tags:
 - software-system-analysis-and-design
