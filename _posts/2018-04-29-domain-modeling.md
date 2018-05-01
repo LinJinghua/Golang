@@ -47,144 +47,43 @@ introduction: 领域建模实践.
             -- +---------------------------------------------------------
             -- | CREATE
             -- +---------------------------------------------------------
-            if exists(select 1 from sys.sysforeignkey where role='FK_HOTEL_REFERENCE_LOCATION') then
-                alter table hotel
-                delete foreign key FK_HOTEL_REFERENCE_LOCATION
-            end if;
-
-            if exists(select 1 from sys.sysforeignkey where role='FK_REQUEST_REFERENCE_HOTEL') then
-                alter table request
-                delete foreign key FK_REQUEST_REFERENCE_HOTEL
-            end if;
-
-            if exists(select 1 from sys.sysforeignkey where role='FK_REQUEST_REFERENCE_CONSUMER') then
-                alter table request
-                delete foreign key FK_REQUEST_REFERENCE_CONSUMER
-            end if;
-
-            if exists(select 1 from sys.sysforeignkey where role='FK_ROOM_REFERENCE_HOTEL') then
-                alter table room
-                delete foreign key FK_ROOM_REFERENCE_HOTEL
-            end if;
-
-            if exists(select 1 from sys.sysforeignkey where role='FK_ROOM DES_REFERENCE_ROOM') then
-                alter table "room description"
-                delete foreign key "FK_ROOM DES_REFERENCE_ROOM"
-            end if;
-
-            drop table if exists consumer;
-
-            drop table if exists hotel;
-
-            drop table if exists location;
-
-            drop table if exists request;
-
-            drop table if exists room;
-
-            drop table if exists "room description";
-
-            /*==============================================================*/
-            /* Table: consumer                                              */
-            /*==============================================================*/
-            create table consumer 
+            CREATE TABLE `Loction`
             (
-            name                 char(20)                       not null,
-            email                char(50)                       not null,
-            constraint PK_CONSUMER primary key clustered (name)
+            code INTEGER NOT NULL,
+            name VARCHAR(40) NOT NULL,
+            PRIMARY KEY (code)
             );
 
-            /*==============================================================*/
-            /* Table: hotel                                                 */
-            /*==============================================================*/
-            create table hotel 
+            CREATE TABLE `Hotel`
             (
-            name                 char(50)                       not null,
-            star                 decimal                        null,
-            "index"              char(20)                       not null,
-            code                 char(20)                       null,
-            address              dec(50)                        null,
-            constraint PK_HOTEL primary key clustered ("index")
+            name CHAR(1024) NOT NULL,
+            star_rating INTEGER,
+            PRIMARY KEY (name)
             );
 
-            /*==============================================================*/
-            /* Table: location                                              */
-            /*==============================================================*/
-            create table location 
+            CREATE TABLE `Reservation`
             (
-            code                 char(20)                       not null,
-            name                 char(50)                       not null,
-            constraint PK_LOCATION primary key clustered (code, name)
+            hotel_name VARCHAR(1024) NOT NULL,
+            room VARCHAR(30),
+            price REAL(30),
+            check_in_date DATE,
+            check_out_date DATE
             );
 
-            /*==============================================================*/
-            /* Table: request                                               */
-            /*==============================================================*/
-            create table request 
+            CREATE TABLE `Room`
             (
-            "hotel name"         char(50)                       not null,
-            city                 char(20)                       null,
-            "room type"          char(10)                       not null,
-            "check in date"      datetime                       not null,
-            "check out date"     datetime                       not null,
-            hotel_index          char(20)                       null,
-            con_name             char(20)                       null,
-            special              char(100)                      null,
-            "request index"      char(20)                       not null,
-            constraint PK_REQUEST primary key clustered ("check in date", "check out date", "request index")
+            NO. INTEGER,
+            PRIMARY KEY (NO.)
             );
 
-            /*==============================================================*/
-            /* Table: room                                                  */
-            /*==============================================================*/
-            create table room 
+            CREATE TABLE `Traveler`
             (
-            "room id"            char(10)                       not null,
-            "hotel index"        char(20)                       null,
-            type                 char(20)                       not null,
-            "availble num"       decimal                        not null,
-            constraint PK_ROOM primary key clustered ("room id")
+            ID INTEGER NOT NULL,
+            name VARCHAR(40),
+            address VARCHAR(60),
+            email VARCHAR(15),
+            PRIMARY KEY (ID)
             );
-
-            /*==============================================================*/
-            /* Table: "room description"                                    */
-            /*==============================================================*/
-            create table "room description" 
-            (
-            "room id"            char(10)                       null,
-            type                 char(20)                       not null,
-            "list price"         double                         not null
-            );
-
-            alter table hotel
-            add constraint FK_HOTEL_REFERENCE_LOCATION foreign key (code, name)
-                references location (code, name)
-                on update restrict
-                on delete restrict;
-
-            alter table request
-            add constraint FK_REQUEST_REFERENCE_HOTEL foreign key (hotel_index)
-                references hotel ("index")
-                on update restrict
-                on delete restrict;
-
-            alter table request
-            add constraint FK_REQUEST_REFERENCE_CONSUMER foreign key (con_name)
-                references consumer (name)
-                on update restrict
-                on delete restrict;
-
-            alter table room
-            add constraint FK_ROOM_REFERENCE_HOTEL foreign key ("hotel index")
-                references hotel ("index")
-                on update restrict
-                on delete restrict;
-
-            alter table "room description"
-            add constraint "FK_ROOM DES_REFERENCE_ROOM" foreign key ("room id")
-                references room ("room id")
-                on update restrict
-                on delete restrict;
             ```
         - 数据库逻辑模型 与 领域模型 的异同
             - 不同：领域模型用于分析，而数据库模型用于开发，需要给出更具体细节，如字段类型。
