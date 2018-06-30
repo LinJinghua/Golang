@@ -2,7 +2,7 @@
 layout: post
 title: "Java Code Optimization"
 description: Java 代码优化
-image: 'https://images2015.cnblogs.com/blog/816222/201509/816222-20150928161843261-1576526614.png'
+image: '/assets/img/placeholder.png'
 category: 'blog'
 tags:
 - java

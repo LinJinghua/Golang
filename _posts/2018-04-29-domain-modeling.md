@@ -32,7 +32,7 @@ introduction: 领域建模实践.
     - 简单叙说 数据库逻辑模型 与 领域模型 的异同
         - E-R 模型
         
-        ![Asg_RH Task1 用例图](/assets/img/blog/domain-modeling-design.png)
+        ![E-R 模型](/assets/img/blog/domain-modeling-design.png)
 
         - Mysql 物理数据库的脚本
             ```sql
