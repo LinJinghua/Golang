@@ -2,7 +2,7 @@
 layout: post
 title: "Final Report"
 description: 系统分析与设计总结报告
-image: ''
+image: '/assets/img/blog/use-case-trick.png'
 category: 'blog'
 tags:
 - software-system-analysis-and-design
